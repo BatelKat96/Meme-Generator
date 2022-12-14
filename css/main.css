@@ -15,8 +15,19 @@ body {
     background-color: lightpink;
     margin: 20px auto;
     width: 90vw;
-    height: 40vh;
     padding: 15px 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+
+}
+
+img {
+    width: 100%;
+    cursor: pointer;
 }
 
 .canvas-container {
@@ -25,6 +36,10 @@ body {
     width: 90vw;
     height: 80vh;
     padding: 15px 20px;
+}
+
+.text-editor {
+    margin: 10px;
 }
 
 canvas {
