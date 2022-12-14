@@ -9,6 +9,8 @@ function onInit() {
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
     // renderMeme(102)
+    console.log('dkkd:')
+
 }
 
 
