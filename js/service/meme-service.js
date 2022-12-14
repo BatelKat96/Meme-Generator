@@ -17,10 +17,10 @@ var gMeme = {
 }
 
 var gImgs = [
-    { id: idNext++, url: '././imgs/1.jpg', keywords: ['man', 'angry'], alt: 'Donald Trump grumpy' },
-    { id: idNext++, url: '././imgs/2.jpg', keywords: ['dog', 'cute'], alt: 'Puppies kissing' },
-    { id: idNext++, url: '././imgs/3.jpg', keywords: ['dog', 'baby'], alt: 'A baby and dog sleeping in bed' },
-    { id: idNext++, url: '././imgs/4.jpg', keywords: ['sleep', 'cat'], alt: 'A cat sleeping on computer' }
+    { id: idNext++, url: './imgs/1.jpg', keywords: ['man', 'angry'], alt: 'Donald Trump grumpy' },
+    { id: idNext++, url: './imgs/2.jpg', keywords: ['dog', 'cute'], alt: 'Puppies kissing' },
+    { id: idNext++, url: './imgs/3.jpg', keywords: ['dog', 'baby'], alt: 'A baby and dog sleeping in bed' },
+    { id: idNext++, url: './imgs/4.jpg', keywords: ['sleep', 'cat'], alt: 'A cat sleeping on computer' }
 ];
 
 function getImgs() {
