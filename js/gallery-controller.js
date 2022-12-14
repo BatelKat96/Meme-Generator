@@ -11,7 +11,6 @@ function renderGallery() {
         <img onclick="onImgSelect(${img.id})" src="${img.url}" alt="${img.alt}">
         </div>
         `
-
     })
 
     var elGallery = document.querySelector('.gallery')
