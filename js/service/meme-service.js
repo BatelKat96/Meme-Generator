@@ -7,7 +7,7 @@ var gMeme = {
 
     lines: [
         {
-            txt: 'Hello',
+            txt: '" "',
             size: '50',
             align: 'center',
             color: 'white',
@@ -60,7 +60,7 @@ function setSwitchLine() {
     gMeme.selectedLineIdx++
     if (gMeme.selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx = 0
     console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
-
+    return gMeme.selectedLineIdx
 }
 
 function addLine() {

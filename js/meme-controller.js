@@ -16,11 +16,9 @@ function onInit() {
 
 function renderMeme(id) {
     gCurrImgMemeId = id
-    // console.log('gCurrImgMemeId:', gCurrImgMemeId)
-
     const elImg = new Image()
     var meme = getMeme(id)
-    console.log('meme1:', meme)
+    // console.log('meme1:', meme)
 
     elImg.src = meme.url
     elImg.onload = () => {
@@ -32,23 +30,16 @@ function renderText() {
     var memeLines = getMeme(gCurrImgMemeId).lines
     console.log('meme2222:', memeLines)
     memeLines.forEach((line, i) => {
-        console.log('line:', line)
-        console.log('i:', i)
         drawText(line, i)
     })
 }
 
 
 function drawText(obj, lineIdx) {
-    // console.log('obj:', obj)
-    console.log('lineIdx:', lineIdx)
-
-
     var x = gElCanvas.width / 2
     var y = gElCanvas.width / 2
-    console.log('y:', y)
 
-    var lineNum = obj.selectedLineIdx
+
     if (lineIdx === 0) {
         y = 50
     } else if (lineIdx === 1) {
@@ -57,13 +48,10 @@ function drawText(obj, lineIdx) {
         x = gElCanvas.width / 2
         y = gElCanvas.width / 2
     } else {
-        // x += lineIdx * 18
         y += lineIdx * 15
-        console.log('y:', y)
     }
-    var text = obj.txt
-    console.log('text:', text)
 
+    var text = obj.txt
     var fontSize = obj.size + 'px'
     var fontFamily = obj.fontFamily
     var color = obj.color
@@ -80,9 +68,9 @@ function drawText(obj, lineIdx) {
     gCtx.strokeText(text, x, y)
 }
 
-function onSetLine(text) {
-    setLine(text)
-    // drawText(obj, x, y)
+function onSetLine(ev) {
+    var elLine = ev.target.value
+    setLine(elLine)
     renderMeme(gCurrImgMemeId)
 }
 
@@ -100,13 +88,15 @@ function onSetFontSize(diff) {
     renderMeme(gCurrImgMemeId)
 }
 function onSetSwitchLine() {
-    setSwitchLine()
+    var numLine = setSwitchLine()
+    var elEditLine = document.querySelector('input[name="text"]')
+    elEditLine.value = getMeme(gCurrImgMemeId).lines[numLine].txt
     renderMeme(gCurrImgMemeId)
 }
 
 function onAddLine() {
-    addLine()
-    var meme = getMeme(gCurrImgMemeId)
-    console.log('meme:', meme)
+    var numLine = addLine()
+    var elEditLine = document.querySelector('input[name="text"]')
+    elEditLine.value = getMeme(gCurrImgMemeId).lines[numLine].txt
     renderText()
 }

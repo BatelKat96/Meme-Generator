@@ -30,7 +30,7 @@
     <section class="canvas-container">
         <h1> Create your Meme!</h1>
         <div class="text-editor">
-            <input type="text" name="text" id="text" placeholder="Enter text" onkeyup="onSetLine(this.value)">
+            <input type="text" name="text" id="text" placeholder="Enter text" onkeyup="onSetLine(event)">
             <input type="color" name="colorShape" id="colorShape" value="#ffffff" onchange="onSetColorText(this.value)">
             <input type="color" name="colorStroke" id="colorStroke" onchange="onSetColorStroke(this.value)">
             <button class="increase" onclick="onSetFontSize('1')"> 🅰️➕</button>
