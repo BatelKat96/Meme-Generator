@@ -8,6 +8,24 @@ function onInit() {
     console.log('in:')
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
+    resizeCanvas()
+    addListeners()
+}
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
+}
+
+function addListeners() {
+    // addMouseListeners()
+    // addTouchListeners()
+    //Listen for resize ev
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        renderMeme(gCurrImgMemeId)
+    })
 }
 
 
@@ -23,6 +41,8 @@ function renderMeme(id) {
         renderText()
     }
 }
+
+
 function renderText() {
     var memeLines = getMeme(gCurrImgMemeId).lines
     console.log('meme2222:', memeLines)
