@@ -1,0 +1,34 @@
+.main-header {
+    background-color: #ff7f00;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-header .main-nav a {
+    text-decoration: none;
+    min-width: 66px;
+    height: 66px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-header .main-nav .seperator {
+    padding: 15px 8px;
+}
+
+.main-header .main-nav a:visited {
+    color: var(--clr2);
+}
+
+.main-header .main-nav a:active {
+    box-shadow: inset 0px -5px 0 var(--clr3);
+    color: var(--clr3);
+}

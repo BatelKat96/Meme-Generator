@@ -10,33 +10,74 @@
 </head>
 
 <body onload="onInit()">
-    <header class="main-header">
-        <div class="logo">Meme Generator</div>
-        <nav>
-            <ul>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Memes</a></li>
+    <header class="main-header pad">
+        <div class="logo"><img src="./imgs-layout/logo.png" alt="memegen"></div>
+        <nav class="main-nav">
+            <ul class="clean-list">
+                <li><a href="#">Gallery </a></li>
+                <li>
+                    <img class="seperator" src="./imgs-layout/Seperator.png">
+                </li>
                 <li><a href="#">About</a></li>
             </ul>
         </nav>
     </header>
-    <section class="images-gallery-container">
-        <h1>Images-gallery</h1>
-        <div class="gallery">
 
+
+
+    <section>
+        <div class="images-gallery-container">
+            <h1>Images-gallery</h1>
+            <div class="gallery">
+
+            </div>
         </div>
 
+        <div class="about-container pad">
+            <div class="about">
+                <div>
+                    <img class="monica-img" src="./imgs-layout/Monica-Geler.jpg" alt="Monica-Geller">
+                </div>
+                <div>
+                    <h2 class="about-headline">Monica Geller</h2>
+                    <p class="about-par">is a fictional character, one of the six main characters who appears on the
+                        American sitcom Friends</p>
+                    <ul class="social-links clean-list">
+                        <li><a href="#" class="fa facebook"></a></li>
+                        <li><a href="#" class="fa linkdin"></a></li>
+                        <li><a href="#" class="fa github"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
-    <section class="canvas-container">
+
+
+
+
+    <section class="canvas-container pad">
         <h1> Create your Meme!</h1>
         <div class="text-editor">
             <input type="text" name="text" id="text" placeholder="Enter text" onkeyup="onSetLine(event)">
-            <input type="color" name="colorShape" id="colorShape" value="#ffffff" onchange="onSetColorText(this.value)">
-            <input type="color" name="colorStroke" id="colorStroke" onchange="onSetColorStroke(this.value)">
-            <button class="increase" onclick="onSetFontSize('1')"> 🅰️➕</button>
-            <button class="decrease" onclick="onSetFontSize('-1')"> 🅰️➖</button>
-            <button class="switch-line" onclick="onSetSwitchLine()"> ↕️</button>
-            <button class="add-line" onclick="onAddLine()"> ➕</button>
+            <br>
+
+            <input class="design-btn stroke-change" type="color" name="colorText" id="colorText" value="#ffffff"
+                onchange="onSetColorText(this.value)">
+            <input class="design-btn color-change" type="color" name="colorStroke" id="colorStroke"
+                onchange="onSetColorStroke(this.value)">
+            <button class="increase design-btn" onclick="onSetFontSize('1')">
+                <img src="./icons/increase-font.png" alt="increase font">
+            </button>
+            <button class="decrease design-btn" onclick="onSetFontSize('-1')">
+                <img src="./icons/decrease-font .png" alt="decrease font">
+            </button>
+            <button class="switch-line design-btn" onclick="onSetSwitchLine()">
+                <img src="./icons/up-and-down-arrows.png" alt="up and down arrows to switch line">
+            </button>
+            <button class="add-line design-btn" onclick="onAddLine()">
+                <img src="./icons/add.png" alt="add line">
+
+            </button>
         </div>
 
 

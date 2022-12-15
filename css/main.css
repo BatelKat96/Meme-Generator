@@ -1,46 +1,64 @@
-* {
-    box-sizing: border-box;
+/* Setup */
+@import './setup/font-face.css';
+@import './setup/vars.css';
 
-}
+/* Basic */
+@import './basic/base.css';
+@import './basic/helpers.css';
+@import './basic/icons-social.css';
 
-body {
-    margin: 0;
-}
+/* Cmps */
+@import './cmps/header.css';
+@import './cmps/about.css';
 
-.main-header {
-    background-color: lightgoldenrodyellow;
-}
+
 
 .images-gallery-container {
-    background-color: lightpink;
-    margin: 20px auto;
-    width: 90vw;
-    padding: 15px 20px;
+    background-color: var(--clr1);
+    padding: 15px 50px;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(353px, 1fr));
     gap: 10px;
 
 }
 
-img {
+.img-gallery {
     width: 100%;
     cursor: pointer;
 }
 
+
+
+
 .canvas-container {
     background-color: lightblue;
-    margin: 20px auto;
-    width: 90vw;
-    height: 80vh;
-    padding: 15px 20px;
+    /* margin: 20px auto; */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: var(--clr1);
 }
 
 .text-editor {
     margin: 10px;
 }
+
+.design-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: none;
+    padding: 10px;
+}
+
+.stroke-change::before {
+
+    background-image: url("/icons/text-stroke.png");
+}
+
 
 
 canvas {

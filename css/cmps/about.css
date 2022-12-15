@@ -1,0 +1,51 @@
+.about-container {
+    padding: 78px 155px 167px;
+}
+
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.monica-img {
+    width: 322px;
+    border-radius: 50%;
+    margin-inline-end: 40px;
+}
+
+.about-headline {
+    font-family: Montserrat-Bold;
+    font-size: 1.5625em;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.45em;
+    line-height: 0.84em;
+}
+
+.about-par {
+    font-size: 1.25em;
+    max-width: 530px;
+}
+
+.social-links {
+    display: flex;
+}
+
+
+.social-links a {
+    display: flex;
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5625em;
+    background-color: var(--clr0);
+    color: var(--clr2);
+    text-decoration: none;
+}
+
+.social-links li {
+    margin-inline-end: 10px;
+}

@@ -8,7 +8,7 @@ function renderGallery() {
     var strHTML = imgs.map(img => {
         return `
         <div>
-        <img onclick="onImgSelect(${img.id})" src="${img.url}" alt="${img.alt}">
+        <img  class="img-gallery" onclick="onImgSelect(${img.id})" src="${img.url}" alt="${img.alt}">
         </div>
         `
     })

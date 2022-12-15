@@ -1,0 +1,15 @@
+.fa::before {
+    font-family: fa;
+}
+
+.fa.facebook::before {
+    content: "\f39e";
+}
+
+.fa.github::before {
+    content: "\f09b";
+}
+
+.fa.linkdin::before {
+    content: "\f0e1";
+}

@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Montserrat;
+}
+
+body {
+    margin: 0;
+}
+
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 1em;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+/* @media (min-width:780px){
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width:1060px){
+    html {
+        font-size: 16px;
+    }
+} */
