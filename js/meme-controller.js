@@ -8,7 +8,7 @@ function onInit() {
     console.log('in:')
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
-    resizeCanvas()
+    // resizeCanvas()
     addListeners()
 }
 
@@ -21,19 +21,29 @@ function resizeCanvas() {
 function addListeners() {
     // addMouseListeners()
     // addTouchListeners()
-    //Listen for resize ev
     window.addEventListener('resize', () => {
         resizeCanvas()
         renderMeme(gCurrImgMemeId)
     })
 }
 
+// function addMouseListeners() {
+//     gElCanvas.addEventListener('mousemove', onMove)
+//     gElCanvas.addEventListener('mousedown', onDown)
+//     gElCanvas.addEventListener('mouseup', onUp)
+// }
+
+// function addTouchListeners() {
+//     gElCanvas.addEventListener('touchmove', onMove)
+//     gElCanvas.addEventListener('touchstart', onDown)
+//     gElCanvas.addEventListener('touchend', onUp)
+// }
+
 
 function renderMeme(id) {
     gCurrImgMemeId = id
     const elImg = new Image()
     var meme = getMeme(id)
-    // console.log('meme1:', meme)
 
     elImg.src = meme.url
     elImg.onload = () => {
@@ -42,15 +52,14 @@ function renderMeme(id) {
     }
 }
 
-
 function renderText() {
     var memeLines = getMeme(gCurrImgMemeId).lines
-    console.log('meme2222:', memeLines)
+    var selectedLineIdx = getMeme(gCurrImgMemeId).selectedLineIdx
     memeLines.forEach((line, i) => {
         drawText(line, i)
+        if (i === selectedLineIdx) drawRect(getMeme(gCurrImgMemeId).lines[i])
     })
 }
-
 
 function drawText(obj, lineIdx) {
     var x = gElCanvas.width / 2
@@ -61,12 +70,18 @@ function drawText(obj, lineIdx) {
         y = 50
     } else if (lineIdx === 1) {
         y = gElCanvas.width - 50
+
     } else if (lineIdx === 2) {
         x = gElCanvas.width / 2
         y = gElCanvas.width / 2
     } else {
         y += lineIdx * 15
     }
+
+    obj.x = x
+    obj.y = y
+    // console.log('obj:', obj)
+    // console.log('getMeme(gCurrImgMemeId):', getMeme(gCurrImgMemeId))
 
     var text = obj.txt
     var fontSize = obj.size + 'px'
@@ -107,13 +122,24 @@ function onSetFontSize(diff) {
 function onSetSwitchLine() {
     var numLine = setSwitchLine()
     var elEditLine = document.querySelector('input[name="text"]')
-    elEditLine.value = getMeme(gCurrImgMemeId).lines[numLine].txt
     renderMeme(gCurrImgMemeId)
+    elEditLine.value = getMeme(gCurrImgMemeId).lines[numLine].txt
 }
 
+
 function onAddLine() {
+    renderText()
     var numLine = addLine()
     var elEditLine = document.querySelector('input[name="text"]')
+    document.querySelector('input[name="text"]').focus()
     elEditLine.value = getMeme(gCurrImgMemeId).lines[numLine].txt
     renderText()
+}
+
+function drawRect(obj) {
+    var x = obj.x
+    var y = obj.y
+    gCtx.beginPath()
+    gCtx.strokeStyle = 'black'
+    gCtx.strokeRect(x - gElCanvas.width / 2 + 10, y - 30, gElCanvas.width - 20, 60)
 }

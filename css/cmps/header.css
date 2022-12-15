@@ -29,8 +29,14 @@
     padding: 15px 8px;
 }
 
-.main-header .main-nav a:visited {
-    color: var(--clr2);
+
+/* .main-header .main-nav a:visited {
+    color: inherit;
+} */
+
+.active {
+    box-shadow: inset 0px -5px 0 var(--clr3);
+    color: var(--clr3);
 }
 
 .main-header .main-nav a:active {
@@ -38,10 +44,6 @@
     color: var(--clr3);
 }
 
-.active {
-    box-shadow: inset 0px -5px 0 var(--clr3);
-    color: var(--clr3);
-}
 
 
 @media (min-width: 780px) {

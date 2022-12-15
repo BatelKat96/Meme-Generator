@@ -26,17 +26,14 @@ var gImgs = [
     { id: idNext++, url: './imgs/4.jpg', keywords: ['sleep', 'cat'], alt: 'A cat sleeping on computer' }
 ]
 
-
 function getImgs() {
     return gImgs
 }
-
 
 function getMeme(id) {
     var meme = gImgs.find(img => img.id === id)
     gMeme.selectedImgId = meme.id
     gMeme.url = meme.url
-
     return gMeme
 }
 
@@ -59,16 +56,12 @@ function setFontSize(diff) {
 function setSwitchLine() {
     gMeme.selectedLineIdx++
     if (gMeme.selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx = 0
-    console.log('gMeme.selectedLineIdx:', gMeme.selectedLineIdx)
     return gMeme.selectedLineIdx
 }
 
 function addLine() {
     var newLine = _createLine()
-    // console.log('newLine:', newLine)
     gMeme.lines.push(newLine)
-    // console.log('gMeme:', gMeme)
-    // console.log('gMeme:', gMeme.lines.length - 1)
     gMeme.selectedLineIdx = gMeme.lines.length - 1
     return (gMeme.lines.length - 1)
 }

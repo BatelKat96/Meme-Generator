@@ -1,4 +1,4 @@
-.about-container {
+.about-section {
 
     padding-block: 34px 64px;
     background-color: var(--clr2);
@@ -57,7 +57,7 @@
 
 
 @media (min-width:780px) {
-    .about-container {
+    .about-section {
         padding: 78px 155px 167px;
     }
 

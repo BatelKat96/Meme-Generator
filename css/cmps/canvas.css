@@ -1,4 +1,5 @@
 .canvas-section {
+
     padding: 12px;
     background-color: var(--clr1);
     display: flex;
@@ -72,6 +73,7 @@ canvas {
     background-color: var(--clr1);
     display: block;
     margin: 0 auto;
+    outline: 2px var(--clr4) solid;
 }
 
 
@@ -83,6 +85,8 @@ canvas {
     }
 
     .canvas-container {
+        min-height: 300px;
+        min-width: 300px;
         width: 35vw;
         height: 35vw;
     }
