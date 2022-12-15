@@ -1,0 +1,30 @@
+.images-gallery-container {
+    background-color: var(--clr1);
+    padding: 27px 50px;
+    padding: 1.125em 0.625em 0.875em;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(163px, 1fr));
+    gap: 5px;
+
+}
+
+.img-gallery {
+    width: 100%;
+    cursor: pointer;
+}
+
+
+@media (min-width:780px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(353px, 1fr));
+        gap: 10px;
+
+    }
+
+    .images-gallery-container {
+        padding: 27px 50px;
+    }
+}

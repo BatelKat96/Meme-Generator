@@ -9,31 +9,43 @@
     <title>Meme Generator</title>
 </head>
 
-<body onload="onInit()">
-    <header class="main-header pad">
-        <div class="logo"><img src="./imgs-layout/logo.png" alt="memegen"></div>
-        <nav class="main-nav">
-            <ul class="clean-list">
-                <li><a href="#">Gallery </a></li>
-                <li>
-                    <img class="seperator" src="./imgs-layout/Seperator.png">
-                </li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
+<body onload="onInit()" class="main-layout">
+    <header class="main-header full main-layout">
+        <div class="header-container">
+            <div class="logo">
+                <img src="./imgs-layout/logo.png" alt="memegen">
+            </div>
+
+            <nav class="main-nav">
+                <ul class="clean-list">
+                    <li><a href="#gallery">Gallery </a></li>
+                    <li>
+                        <img class="seperator" src="./imgs-layout/Seperator.png">
+                    </li>
+                    <li><a href="#meme">Meme</a></li>
+                    <li>
+                        <img class="seperator" src="./imgs-layout/Seperator.png">
+                    </li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
 
 
-    <section>
-        <div class="images-gallery-container">
-            <h1>Images-gallery</h1>
-            <div class="gallery">
+    <section class="gallery-and-about-section main-layout full">
+        <div class="main-layout">
+            <div class="images-gallery-container full" id="gallery">
+                <h1>Images-gallery</h1>
+                <div class="gallery">
 
+                </div>
             </div>
         </div>
 
-        <div class="about-container pad">
+
+        <div class="about-container pad full main-layout " id="about">
             <div class="about">
                 <div>
                     <img class="monica-img" src="./imgs-layout/Monica-Geler.jpg" alt="Monica-Geller">
@@ -53,37 +65,67 @@
     </section>
 
 
+    <section class="canvas-section   main-layout" id="meme">
+        <div class="canvas-container">
+            <canvas id="my-canvas" height="350" width="350"></canvas>
+        </div>
+
+        <div class="text-editor main-layout">
+            <div class="line-content">
+
+                <input class="placeholder" type="text" name="text" id="text" placeholder="Lorem ipsum dolor sit amet"
+                    onkeyup="onSetLine(event)">
+                <div class="line-content-btns">
+                    <button class="switch-line design-btn" onclick="onSetSwitchLine()">
+                        <img src="./icons/up-and-down-arrows.png" alt="up and down arrows to switch line">
+                    </button>
+                    <button class="add-line design-btn" onclick="onAddLine()">
+                        <img src="./icons/add.png" alt="add line">
+                    </button>
+                    <button class="remove-line design-btn" onclick="onAddLine()">
+                        <img src="./icons/trash.png" alt="remove line">
+                    </button>
+                </div>
+            </div>
+            <div class="line-style">
+
+                <input class="design-btn stroke-change" type="color" name="colorText" id="colorText" value="#ffffff"
+                    onchange="onSetColorText(this.value)">
 
 
-    <section class="canvas-container pad">
-        <h1> Create your Meme!</h1>
-        <div class="text-editor">
-            <input type="text" name="text" id="text" placeholder="Enter text" onkeyup="onSetLine(event)">
-            <br>
+                <input class="design-btn color-change" type="color" name="colorStroke" id="colorStroke"
+                    onchange="onSetColorStroke(this.value)">
 
-            <input class="design-btn stroke-change" type="color" name="colorText" id="colorText" value="#ffffff"
-                onchange="onSetColorText(this.value)">
-            <input class="design-btn color-change" type="color" name="colorStroke" id="colorStroke"
-                onchange="onSetColorStroke(this.value)">
-            <button class="increase design-btn" onclick="onSetFontSize('1')">
-                <img src="./icons/increase-font.png" alt="increase font">
-            </button>
-            <button class="decrease design-btn" onclick="onSetFontSize('-1')">
-                <img src="./icons/decrease-font .png" alt="decrease font">
-            </button>
-            <button class="switch-line design-btn" onclick="onSetSwitchLine()">
-                <img src="./icons/up-and-down-arrows.png" alt="up and down arrows to switch line">
-            </button>
-            <button class="add-line design-btn" onclick="onAddLine()">
-                <img src="./icons/add.png" alt="add line">
 
-            </button>
+                <button class="increase design-btn" onclick="onSetFontSize('1')">
+                    <img src="./icons/increase-font.png" alt="increase font">
+                </button>
+
+
+                <button class="decrease design-btn" onclick="onSetFontSize('-1')">
+                    <img src="./icons/decrease-font .png" alt="decrease font">
+                </button>
+
+
+                <button class="decrease design-btn" onclick="onSetFontSize('-1')">
+                    <img src="./icons/decrease-font .png" alt="decrease font">
+                </button>
+
+            </div>
         </div>
 
 
-        <canvas id="my-canvas" height="450" width="450"></canvas>
     </section>
 
+
+    <footer class="main-layout full">
+        <div class="logo">
+            <img src="./imgs-layout/logo.png" alt="memegen">
+        </div>
+        <p class="footer-par">
+            all rights reserved 2019
+        </p>
+    </footer>
     <script src="./js/service/meme-service.js"></script>
     <script src="./js/gallery-controller.js"></script>
     <script src="./js/meme-controller.js"></script>

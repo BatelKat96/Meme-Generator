@@ -1,9 +1,14 @@
 .main-header {
     background-color: #ff7f00;
     color: #ffffff;
+
+}
+
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-inline: 0.625em;
 }
 
 .main-header ul {
@@ -31,4 +36,16 @@
 .main-header .main-nav a:active {
     box-shadow: inset 0px -5px 0 var(--clr3);
     color: var(--clr3);
+}
+
+.active {
+    box-shadow: inset 0px -5px 0 var(--clr3);
+    color: var(--clr3);
+}
+
+
+@media (min-width: 780px) {
+    .header-container {
+        padding: 0 50px;
+    }
 }
