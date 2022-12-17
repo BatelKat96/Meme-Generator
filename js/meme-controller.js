@@ -5,14 +5,12 @@ let gCtx
 let gCurrImgMemeId
 
 function onInit() {
+    gElCanvas = document.getElementById('my-canvas')
+    gCtx = gElCanvas.getContext('2d')
     renderGallery()
     _createKeywordsMap()
     createDataList()
     renderSearchWords()
-    console.log('in:')
-    gElCanvas = document.getElementById('my-canvas')
-    gCtx = gElCanvas.getContext('2d')
-    // resizeCanvas()
     addListeners()
 }
 
@@ -23,32 +21,18 @@ function resizeCanvas() {
 }
 
 function addListeners() {
-    // addMouseListeners()
-    // addTouchListeners()
     window.addEventListener('resize', () => {
         resizeCanvas()
         renderMeme(gCurrImgMemeId)
     })
 }
 
-// function addMouseListeners() {
-//     gElCanvas.addEventListener('mousemove', onMove)
-//     gElCanvas.addEventListener('mousedown', onDown)
-//     gElCanvas.addEventListener('mouseup', onUp)
-// }
-
-// function addTouchListeners() {
-//     gElCanvas.addEventListener('touchmove', onMove)
-//     gElCanvas.addEventListener('touchstart', onDown)
-//     gElCanvas.addEventListener('touchend', onUp)
-// }
 
 
 function renderMeme(id) {
     gCurrImgMemeId = id
     const elImg = new Image()
     var meme = getMeme(id)
-
     elImg.src = meme.url
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -66,28 +50,10 @@ function renderText() {
 }
 
 function drawText(obj) {
-    var lineIdx = obj.lineId
-    var x = gElCanvas.width / 2
-    var y = gElCanvas.width / 2
 
-
-    if (lineIdx === 0) {
-        y = 50
-    } else if (lineIdx === 1) {
-        y = gElCanvas.width - 50
-
-    } else if (lineIdx === 2) {
-        x = gElCanvas.width / 2
-        y = gElCanvas.width / 2
-    } else {
-        y += lineIdx * 15
-    }
-
-    obj.x = x
-    obj.y = y
-    // console.log('obj:', obj)
-    // console.log('getMeme(gCurrImgMemeId):', getMeme(gCurrImgMemeId))
-
+    if (!obj.x) obj.x = gElCanvas.width / 2
+    var x = obj.x
+    var y = obj.y
     var text = obj.txt
     var fontSize = obj.size + 'px'
     var fontFamily = obj.fontFamily
@@ -106,6 +72,10 @@ function drawText(obj) {
     gCtx.strokeText(text, x, y)
 }
 
+function onMoveLine(diff) {
+    moveLine(diff)
+    renderMeme(gCurrImgMemeId)
+}
 function onSetLine(ev) {
     var elLine = ev.target.value
     setLine(elLine)
@@ -136,15 +106,6 @@ function onRemoveLine(ev) {
     }
 }
 
-function onSetColorText(color) {
-    setColorText(color)
-    renderMeme(gCurrImgMemeId)
-}
-function onSetColorStroke(color) {
-    setColorStroke(color)
-    renderMeme(gCurrImgMemeId)
-}
-
 function onSetFontSize(diff) {
     setFontSize(diff)
     renderMeme(gCurrImgMemeId)
@@ -154,6 +115,22 @@ function onAlignText(diff) {
     alignText(diff)
     renderMeme(gCurrImgMemeId)
 }
+
+function onSetColorText(color) {
+    setColorText(color)
+    renderMeme(gCurrImgMemeId)
+}
+function onSetColorStroke(color) {
+    setColorStroke(color)
+    renderMeme(gCurrImgMemeId)
+}
+
+function onChangeFontFamily(font) {
+    changeFontFamily(font)
+    renderMeme(gCurrImgMemeId)
+}
+
+
 
 
 function downloadImg(elLink) {

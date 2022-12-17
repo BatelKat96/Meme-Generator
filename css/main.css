@@ -21,13 +21,10 @@
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    /* padding-inline: 20px; */
+
 }
 
-@media (min-width: 780px)
-
-/*1060*/
-    {
+@media (min-width: 780px) {
     .main-layout>*:not(.full) {
         max-width: 1200px;
         margin-left: auto;

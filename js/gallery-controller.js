@@ -1,7 +1,6 @@
 'use strict'
 var isShow
 
-
 function renderGallery() {
     var imgs = getImgs()
 
@@ -12,7 +11,6 @@ function renderGallery() {
         </div>
         `
     })
-
     var elGallery = document.querySelector('.gallery')
     elGallery.innerHTML = strHTML.join('')
 }
@@ -27,7 +25,6 @@ function onImgSelect(id) {
     isShow = 'meme'
     resizeCanvas()
     renderMeme(id)
-    console.log('isShow:', isShow)
 }
 
 function onChangeLayut(msg) {
@@ -56,8 +53,6 @@ function onSetFilterBy(filterBy) {
 
 function renderSearchWords() {
     var keywordsMap = getKeywordsMap()
-    console.log(':', keywordsMap)
-
     var keys = Object.keys(keywordsMap)
     var values = Object.values(keywordsMap)
     var strHTML = keys.map((key, i) => {
@@ -67,7 +62,6 @@ function renderSearchWords() {
         `
     })
     var elSearchWords = document.querySelector('.search-words')
-    // console.log(':', elSearchWords)
     elSearchWords.innerHTML = strHTML.join('')
 
 }
@@ -75,29 +69,17 @@ function renderSearchWords() {
 function onShowMore() {
     var elSearchWords = document.querySelector('.search-words')
     elSearchWords.classList.toggle('show-more')
-    // elSearchWords.style.overflow = 'visible'
-
 }
 
 
 function createDataList() {
     var keywordsMap = getKeywordsMap()
-    // console.log('keywordsMap:', keywordsMap)
     var keys = Object.keys(keywordsMap)
-    console.log('values:', keys)
-
     var strHTML = keys.map(key => {
         return `
         <option value="${key}"></option>
         `
     })
-
-
-    console.log('strHTML:', strHTML)
-
     var elDatalist = document.querySelector('#keywordsList')
-    console.log('elDatalist:', elDatalist)
-
     elDatalist.innerHTML = strHTML.join('')
-    // document.getElementById('#keywordsList').innerHTML = strHTML.join('')
 }

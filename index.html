@@ -61,6 +61,13 @@
                     <input class="placeholder-line" type="text" name="text" id="text"
                         placeholder="Lorem ipsum dolor sit amet" onkeyup="onSetLine(event)">
                     <div class="line-content-btns">
+
+                        <button class="move-line-up design-btn" onclick="onMoveLine('-1')">
+                            <img src="./icons/arrow-up.png" alt="up-arrow">
+                        </button>
+                        <button class="move-line-down design-btn" onclick="onMoveLine('1')">
+                            <img src="./icons/arrow-down.png" alt="down-arrow">
+                        </button>
                         <button class="switch-line design-btn" onclick="onSetSwitchLine()">
                             <img src="./icons/up-and-down-arrows.png" alt="up and down arrows to switch line">
                         </button>
@@ -89,6 +96,14 @@
                         <button class="design-btn align-to-right" onclick="onAlignText('1')">
                             <img src="./icons/align-to-right.png" alt="align-to-right">
                         </button>
+
+                        <select class="font-family " onchange="onChangeFontFamily(this.value)">
+                            <option value="Impact">Impact</option>
+                            <option value="Ariel">Ariel</option>
+                            <option value="Cambria">Cambria</option>
+                            <option value="Serif">Serif</option>
+                            <option value="sans-serif">Sans-serif</option>
+                        </select>
                         <div>
                             <img class="design-btn stroke-change-img" src="./icons/text-stroke.png" alt="text-stroke">
                             <input class="design-btn stroke-change" type="color" name="colorText" id="colorText"
@@ -121,9 +136,9 @@
                 <img class="monica-img" src="./imgs-layout/Monica-Geler.jpg" alt="Monica-Geller">
             </div>
             <div>
-                <h2 class="about-headline">Monica Geller</h2>
-                <p class="about-par">is a fictional character, one of the six main characters who appears on the
-                    American sitcom Friends</p>
+                <h2 class="about-headline">Batel Katiei</h2>
+                <p class="about-par">I'm a full-stack student in coding-academy. Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit.</p>
                 <ul class="social-links clean-list">
                     <li><a href="#" class="fa facebook"></a></li>
                     <li><a href="#" class="fa linkdin"></a></li>

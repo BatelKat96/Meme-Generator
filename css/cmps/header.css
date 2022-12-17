@@ -45,10 +45,6 @@
 
 
 @media (min-width: 780px) {
-    .header-container {
-        /* padding: 0 50px; */
-    }
-
     .menu-toggle-btn {
         display: none;
     }
