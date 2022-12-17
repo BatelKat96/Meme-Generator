@@ -36,6 +36,8 @@ button {
 
 a {
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 /* @media (min-width:780px){

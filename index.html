@@ -10,6 +10,7 @@
 </head>
 
 <body onload="onInit()" class="main-layout">
+    <div class="main-screen full" onclick="toggleMenu()"></div>
     <header class="main-header full main-layout">
         <div class="header-container">
             <div class="logo">
@@ -20,44 +21,44 @@
                 <ul class="clean-list">
                     <li><a class="gallery-nav active" onclick="onChangeLayut('gallery')">Gallery </a>
                     </li>
-                    <li>
-                        <img class="seperator" src="./imgs-layout/Seperator.png">
-                    </li>
                     <li><a class="meme-nav" onclick="onChangeLayut('meme')">Meme</a></li>
-                    <li>
-                        <img class="seperator" src="./imgs-layout/Seperator.png">
-                    </li>
                     <li><a class="about-nav" onclick="onChangeLayut('about')">About</a></li>
                 </ul>
             </nav>
+            <button class="menu-toggle-btn" onclick="toggleMenu()">☰</button>
         </div>
     </header>
 
 
 
     <section class="gallery-section main-layout full">
-        <div class="main-layout">
-            <div class="images-gallery-container full" id="gallery">
-                <h1>Images-gallery</h1>
-                <div class="gallery">
-
+        <form class="search-box main-layout full" onsubmit="onSearch(event)">
+            <div class="main-layout search-container">
+                <div class="search-input">
+                    <input type="text" name="search-txt" class="placeholder-search" list="keywordsList"
+                        placeholder="Enter search keywoed" />
+                    <datalist id="keywordsList"></datalist>
+                    <button class="search-btn"> <img src="./icons/search-icon.png" alt=""></button>
                 </div>
+                <div class="search-words"></div>
+                <a onclick="onShowMore()" class="more">more...</a>
             </div>
+        </form>
+        <br>
+        <div class="gallery" id="gallery">
         </div>
-
-
     </section>
 
 
     <section class="meme-section" hidden>
         <div class="canvas-section main-layout" id="meme">
             <div class="canvas-container">
-                <canvas id="my-canvas" height="300" width="300"></canvas>
+                <canvas id="my-canvas" height="250" width="250"></canvas>
             </div>
 
             <div class="text-editor main-layout">
                 <div class="line-content">
-                    <input class="placeholder" type="text" name="text" id="text"
+                    <input class="placeholder-line" type="text" name="text" id="text"
                         placeholder="Lorem ipsum dolor sit amet" onkeyup="onSetLine(event)">
                     <div class="line-content-btns">
                         <button class="switch-line design-btn" onclick="onSetSwitchLine()">
@@ -66,25 +67,48 @@
                         <button class="add-line design-btn" onclick="onAddLine()">
                             <img src="./icons/add.png" alt="add line">
                         </button>
-                        <button class="remove-line design-btn" onclick="onAddLine()">
+                        <button class="remove-line design-btn" onclick="onRemoveLine(event)">
                             <img src="./icons/trash.png" alt="remove line">
                         </button>
                     </div>
                 </div>
+                <div class="line-style-container">
+                    <div class="line-style">
+                        <button class="increase design-btn" onclick="onSetFontSize('1')">
+                            <img src="./icons/increase-font.png" alt="increase font">
+                        </button>
+                        <button class="decrease design-btn" onclick="onSetFontSize('-1')">
+                            <img src="./icons/decrease-font.png" alt="decrease font">
+                        </button>
+                        <button class="design-btn align-to-left" onclick="onAlignText('-1')">
+                            <img src="./icons/align-to-left.png" alt="align-to-left">
+                        </button>
+                        <button class="design-btn center-text-alignment" onclick="onAlignText('0')">
+                            <img src="./icons/center-text-alignment.png" alt="center-text-alignment">
+                        </button>
+                        <button class="design-btn align-to-right" onclick="onAlignText('1')">
+                            <img src="./icons/align-to-right.png" alt="align-to-right">
+                        </button>
+                        <div>
+                            <img class="design-btn stroke-change-img" src="./icons/text-stroke.png" alt="text-stroke">
+                            <input class="design-btn stroke-change" type="color" name="colorText" id="colorText"
+                                value="#ffffff" onchange="onSetColorText(this.value)">
+                        </div>
+                        <div>
+                            <img class="design-btn color-change-img" src="./icons/paint-board-and-brush.png"
+                                alt="paint-board-and-brush">
+                            <input class="design-btn color-change" type="color" name="colorStroke" id="colorStroke"
+                                onchange="onSetColorStroke(this.value)">
+                        </div>
+                    </div>
+                </div>
 
-                <div class="line-style">
-                    <input class="design-btn stroke-change" type="color" name="colorText" id="colorText" value="#ffffff"
-                        onchange="onSetColorText(this.value)">
-                    <input class="design-btn color-change" type="color" name="colorStroke" id="colorStroke"
-                        onchange="onSetColorStroke(this.value)">
-                    <button class="increase design-btn" onclick="onSetFontSize('1')">
-                        <img src="./icons/increase-font.png" alt="increase font">
-                    </button>
-                    <button class="decrease design-btn" onclick="onSetFontSize('-1')">
-                        <img src="./icons/decrease-font .png" alt="decrease font">
-                    </button>
-                    <button class="decrease design-btn" onclick="onSetFontSize('-1')">
-                        <img src="./icons/decrease-font .png" alt="decrease font">
+
+                <div class="output-btn-container">
+                    <a href="#" class="download-btn output-btn" onclick="downloadImg(this)"
+                        download="my-img.jpg">Download</a>
+                    <button class="share-btn output-btn" onclick="onUploadImg()">
+                        Share
                     </button>
                 </div>
             </div>
@@ -117,9 +141,12 @@
             all rights reserved 2019
         </p>
     </footer>
+    <script src="./js/service/storage.service.js"></script>
+    <script src="./js/service/gallery-service.js"></script>
     <script src="./js/service/meme-service.js"></script>
     <script src="./js/gallery-controller.js"></script>
     <script src="./js/meme-controller.js"></script>
+    <script src="./js/main-controller.js"></script>
 </body>
 
 </html>

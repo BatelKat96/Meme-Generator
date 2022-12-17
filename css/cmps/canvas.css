@@ -14,11 +14,11 @@
 .text-editor {
     text-align: center;
     display: grid;
-    grid-template-rows: repeat(2fr, 1fr);
-    gap: 5px;
+    grid-template-rows: 2fr 2fr 1fr;
+    gap: 25px;
 }
 
-.placeholder {
+.placeholder-line {
     width: 90vw;
     border-radius: 12px;
     height: 60px;
@@ -29,14 +29,14 @@
     /* margin-bottom: 0.625em; */
 }
 
-::placeholder {
+.text-editor ::placeholder {
     color: var(--clr4);
 }
 
 .line-content {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    gap: 7px;
+    gap: 10px;
 }
 
 .line-content-btns {
@@ -55,6 +55,7 @@
     width: 90vw;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 10px;
     justify-items: center;
     align-items: center;
@@ -69,12 +70,58 @@
     padding: 7px;
 }
 
+.stroke-change,
+.color-change {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.color-change-img,
+.stroke-change-img {
+    position: absolute;
+}
+
+.output-btn {
+    background-color: var(--clr0);
+    color: var(--clr2);
+    width: 120px;
+    height: 60px;
+    border-radius: 12px;
+    font-size: 1.25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.output-btn-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: 10px;
+}
+
+.download-btn {
+    grid-column: 1;
+}
+
+.share-btn {
+    grid-column: 3;
+}
+
 canvas {
     background-color: var(--clr1);
     display: block;
     margin: 0 auto;
     outline: 2px var(--clr4) solid;
 }
+
+
+@media (min-width:740px) {
+    /* .line-style {
+        width: 90vw;
+    } */
+}
+
 
 
 @media (min-width:980px) {
@@ -91,12 +138,8 @@ canvas {
         height: 35vw;
     }
 
-    .text-editor {
-        gap: 40px;
-    }
 
-
-    .placeholder {
+    .placeholder-line {
         width: 373px;
         /* margin-bottom: 0.5em; */
     }
