@@ -32,7 +32,7 @@
 
 
     <section class="gallery-section main-layout full">
-        <form class="search-box main-layout full" onsubmit="onSearch(event)">
+        <form class="search-box main-layout full" onkeyup="onSearch(event)">
             <div class="main-layout search-container">
                 <div class="search-input">
                     <input type="text" name="search-txt" class="placeholder-search" list="keywordsList"
@@ -52,8 +52,8 @@
 
     <section class="meme-section" hidden>
         <div class="canvas-section main-layout" id="meme">
-            <div class="canvas-container">
-                <canvas id="my-canvas" height="250" width="250"></canvas>
+            <div class="canvas-container full">
+                <canvas id="my-canvas" height="300" width="300"></canvas>
             </div>
 
             <div class="text-editor main-layout">
@@ -97,23 +97,23 @@
                             <img src="./icons/align-to-right.png" alt="align-to-right">
                         </button>
 
-                        <select class="font-family " onchange="onChangeFontFamily(this.value)">
-                            <option value="Impact">Impact</option>
-                            <option value="Ariel">Ariel</option>
-                            <option value="Cambria">Cambria</option>
-                            <option value="Serif">Serif</option>
-                            <option value="sans-serif">Sans-serif</option>
+                        <select class="font-family" onchange="onChangeFontFamily(this.value)">
+                            <option value="Impact" class="impact">Impact</option>
+                            <option value="Ariel" class="ariel">Ariel</option>
+                            <option value="Cambria" class="cambria">Cambria</option>
+                            <option value="Serif" class="serif">Serif</option>
+                            <option value="sans-serif" class="sans-serif">Sans-serif</option>
                         </select>
                         <div>
                             <img class="design-btn stroke-change-img" src="./icons/text-stroke.png" alt="text-stroke">
-                            <input class="design-btn stroke-change" type="color" name="colorText" id="colorText"
-                                value="#ffffff" onchange="onSetColorText(this.value)">
+                            <input class="design-btn color-change" type="color" name="colorStroke" id="colorStroke"
+                                onchange="onSetColorStroke(this.value)">
                         </div>
                         <div>
                             <img class="design-btn color-change-img" src="./icons/paint-board-and-brush.png"
                                 alt="paint-board-and-brush">
-                            <input class="design-btn color-change" type="color" name="colorStroke" id="colorStroke"
-                                onchange="onSetColorStroke(this.value)">
+                            <input class="design-btn stroke-change" type="color" name="colorText" id="colorText"
+                                value="#ffffff" onchange="onSetColorText(this.value)">
                         </div>
                     </div>
                 </div>
@@ -131,9 +131,9 @@
     </section>
 
     <section class="about-section pad full main-layout" id="about">
-        <div class="about full main-layout">
+        <div class="about full">
             <div>
-                <img class="monica-img" src="./imgs-layout/Monica-Geler.jpg" alt="Monica-Geller">
+                <img class="monica-img" src="./imgs-layout/me.jpeg" alt="Monica-Geller">
             </div>
             <div>
                 <h2 class="about-headline">Batel Katiei</h2>
@@ -156,12 +156,11 @@
             all rights reserved 2019
         </p>
     </footer>
-    <script src="./js/service/storage.service.js"></script>
-    <script src="./js/service/gallery-service.js"></script>
-    <script src="./js/service/meme-service.js"></script>
-    <script src="./js/gallery-controller.js"></script>
-    <script src="./js/meme-controller.js"></script>
-    <script src="./js/main-controller.js"></script>
+    <script src="./js/services/storage.service.js"></script>
+    <script src="./js/services/gallery.service.js"></script>
+    <script src="./js/services/meme.service.js"></script>
+    <script src="./js/gallery.controller.js"></script>
+    <script src="./js/meme.controller.js"></script>
 </body>
 
 </html>

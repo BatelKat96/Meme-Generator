@@ -54,7 +54,7 @@
 @media (max-width: 780px) {
     .main-header {
         position: relative;
-
+        padding-inline: 15px;
     }
 
     .main-header .main-nav a {

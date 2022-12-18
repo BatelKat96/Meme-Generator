@@ -36,15 +36,15 @@ function renderMeme(id) {
     elImg.src = meme.url
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        renderText()
+        renderLines()
     }
 }
 
-function renderText() {
-    var memeLines = getMeme(gCurrImgMemeId).lines
+function renderLines() {
+    var lines = getMeme(gCurrImgMemeId).lines
     var selectedLineIdx = getMeme(gCurrImgMemeId).selectedLineIdx
-    memeLines.forEach((line, i) => {
-        drawText(line, i)
+    lines.forEach((line, i) => {
+        drawText(line)
         if (i === selectedLineIdx) drawRect(getMeme(gCurrImgMemeId).lines[i])
     })
 }
@@ -90,12 +90,12 @@ function onSetSwitchLine() {
 }
 
 function onAddLine() {
-    renderText()
+    renderLines()
     var numLine = addLine()
     var elEditLine = document.querySelector('input[name="text"]')
     document.querySelector('input[name="text"]').focus()
     elEditLine.value = getMeme(gCurrImgMemeId).lines[numLine].txt
-    renderText()
+    renderLines()
 }
 
 function onRemoveLine(ev) {

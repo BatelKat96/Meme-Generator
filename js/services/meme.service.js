@@ -12,7 +12,7 @@ var gMeme = {
             size: '50',
             align: 'center',
             color: 'white',
-            strokeColor: '',
+            strokeColor: 'black',
             fontFamily: 'Impact',
             y: 50
         }
@@ -117,7 +117,7 @@ function _createLine() {
         size: '50',
         align: 'center',
         color: 'white',
-        strokeColor: '',
+        strokeColor: 'black',
         fontFamily: 'Impact',
         x: gElCanvas.width / 2
     }
