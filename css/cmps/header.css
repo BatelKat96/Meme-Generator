@@ -28,7 +28,7 @@
 
 
 .main-header .main-nav li+li {
-    background: url(/imgs-layout/Seperator.png) no-repeat center left;
+    background: url("../../imgs-layout/Seperator.png") no-repeat center left;
 }
 
 

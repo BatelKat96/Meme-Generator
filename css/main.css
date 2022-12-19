@@ -1,16 +1,16 @@
 /* Setup */
-@import './setup/font-face.css';
-@import './setup/vars.css';
+@import 'setup/font-face.css';
+@import 'setup/vars.css';
 
 /* Basic */
-@import './basic/base.css';
-@import './basic/helpers.css';
-@import './basic/icons-social.css';
-@import './basic/layout.css';
+@import 'basic/base.css';
+@import 'basic/helpers.css';
+@import 'basic/icons-social.css';
+@import 'basic/layout.css';
 
 /* Cmps */
-@import './cmps/header.css';
-@import './cmps/gallery.css';
-@import './cmps/about.css';
-@import './cmps/canvas.css';
-@import './cmps/footer.css';
+@import 'cmps/header.css';
+@import 'cmps/gallery.css';
+@import 'cmps/about.css';
+@import 'cmps/canvas.css';
+@import 'cmps/footer.css';
